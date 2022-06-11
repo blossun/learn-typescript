@@ -6,6 +6,10 @@ enum Avengers {
 }
 const myHero = Avengers.Capt;
 
+// 타입 종류
+// any - string, number, array등 모든 타입을 통칭. 실행하는 시점에 타입을 구분해서 할당(동적)
+// void - 반환값이 없다는 것을 명시적으로 지정
+
 // any
 let a: any = 'hi';
 a = 20;

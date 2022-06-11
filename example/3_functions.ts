@@ -4,7 +4,7 @@ function sum(a, b) {
 }
 
 // 타입스크립트 함수 선언 - 함수의 매개 변수
-function add(a: number, b: number) {
+function add(a: number, b: number) { //리턴 타입 추론, (코틀린은 문으로 쓰일 때는 리턴 타입 생략 불가)
   return a + b;
 }
 
@@ -24,7 +24,7 @@ function log(a: string) {
 log('a', 10);
 
 // 함수 옵셔널 파라미터(optional parameter)
-function printText(text: string, type?: string) {
+function printText(text: string, type?: string) { //코틀린은 타입뒤에 물음표 형태로 표현 `type: String?`
   console.log(text);
 }
 printText('hi');

@@ -10,7 +10,8 @@ arr.push('hi');
 
 // 배열 - 리터럴 적용
 const items: string[] = [];
-// items.push(10);
+// items.push(10); //타입체크
+items.push('hi')
 
 // 튜플
 const address: [string, number] = ['판교', 40];
