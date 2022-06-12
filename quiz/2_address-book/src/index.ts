@@ -145,3 +145,19 @@ function test() {
   console.log(solarContact.phones.home); //{ num: 123123 }
 }
 setTimeout(() => test(), 3000); //전화번호부가 fetch(2초)된 후에 확인해야 하므로
+
+
+// -------------------------------------------------------------------------------
+// # 타입 단언
+const divElement = document.querySelector('div'); //(타입 추론) const divElement: HTMLDivElement | null
+// divElement.innerHTML; // error -> Object is possibly 'null'. (null가능성이 있음)
+
+//보통 특정 시점에 지정한 selector가 있는지 확신할 수 없기 떄문에 이를 확인하는 if문 내에서 처리하는 것이 일반적이다.
+//if문으로 null이 아님을 보장하고 접근할 수 있다.
+if (divElement) {
+  divElement.innerHTML;
+  console.log(divElement.innerHTML);
+}
+
+const appElement = document.querySelector('#app') as Element; //const appElement: Element
+appElement.innerHTML; //if문으로 존재하는지 확인하지 않고 바로 사용할 수 있다.

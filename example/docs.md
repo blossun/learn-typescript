@@ -61,7 +61,8 @@ class를 사용하지 않고도 생성자 함수로 충분히 만들어 나갈 �
 
 타입을 정의했을 때 코드를 보면서, 제네릭을 적용하기 전/후를 비교
 
-> 참고 코드
+> 예제 코드
+> - 8_generics.ts
 > - dropdown-generic.html
 > - dropdown-generic.ts
 
@@ -77,8 +78,47 @@ class를 사용하지 않고도 생성자 함수로 충분히 만들어 나갈 �
 ---
 # 타입 추론
 
+> 예제 코드 : 9_type-inference.ts
+
 ## Typescript Language Server 소개
 - [VSCode 타입스크립트 소개 문서](https://code.visualstudio.com/docs/languages/typescript#_code-suggestions)
 - [VSCode Language Server Extension 가이드](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
 - [Language Server 소개 사이트](https://langserver.org/)
 - [Language Server Protocol 개요](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
+
+---
+# 타입 단언(Type Assertion)
+
+> 예제 코드
+> - 9_type-inference.ts
+> - quiz/2_address-book/src/index.ts -> DOM API에 적용한 예제
+
+```ts
+// # 타입 단언(추정) (type assertion)
+// ts보다 개발자가 타입을 더 잘 알고 있다.
+// ts에게 개발자가 정의한 타입으로 간주하라고 지정한다.
+var value; //이 때, value에게 값을 할당하지 않았기 때문에 타입 추론을 통해 var a: any 라고 나온다.
+//중간에 value에 number도 넣었다가 string도 넣었다. 최종 value에 들어간 값의 타입은 string임을 개발자가 알고있다.
+value = 20;
+value = 'hi';
+var b = value; //이렇게만 적으면 ts는 value의 타입을 추론하지 못해 var b: any 라고 해석한다.
+// 이때 value는 string 이라는 것을 단언할 수 있다.
+var c = value as string; //var c: string //c의 타입이 string으로 해석된다.
+
+// - 보통 DOM API를 조작할 때 타입 단언을 많이 사용한다.
+// DOM API - web page의 태그 정보에 접근해서 조작할 수 있는 API
+const divElement = document.querySelector('div'); //(타입 추론) const divElement: HTMLDivElement | null
+//보통 특정 시점에 지정한 selector가 있는지 확신할 수 없기 떄문에 이를 확인하는 if문 내에서 처리하는 것이 일반적이다.
+if (divElement) {
+    divElement.innerHTML; //InnerHTML.innerHTML: string
+}
+
+// 위의 divElement는 HTMLDivElement | null 타입이 된다.
+// 다음 코드 처럼 무조건 null이 아니고 Element 임을 보장하는 타입단언을 선언하면 if문 없이 바로 사용할 수 있다.
+const appElement = document.querySelector('#app') as Element; //const appElement: Element
+appElement.innerHTML; //if문으로 존재하는지 확인하지 않고 바로 사용할 수 있다.
+
+
+const empty = document.querySelector('#app') as null;
+// empty.innerHTML; //X -> 위에서 empty 타입이 null임을 단언했기 때문에 innerHTML을 사용할 수 없다.
+```
