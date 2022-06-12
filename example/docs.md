@@ -225,6 +225,4 @@ export interface Todo {
 - [ES6 Modules](https://joshua1988.github.io/vue-camp/es6+/modules.html)
 - [자바스크립트 모듈화 역사](https://d2.naver.com/helloworld/12864)
 
-
-
-
+> 실습 예제 : 전화번호부 애플리케이션에 타입 모듈화

@@ -1,27 +1,4 @@
-// PhoneNumberDictionary
-// key-value 형식의 map
-// key : string 타입, key이름이 담기는 변수: phone
-// 실제 값객체({num: number))에 접근할 때, 지정한 key속성명으로 접근하면 된다.
-// value : number타입의 num 속성이 있는 객체
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    //key가 되는 속성명을 (phone 변수에) 동적으로 지정할 수 있다.
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
-// phoneType : home, office, studio
-
-enum PhoneType {
-  Home = 'home',
-  Office = 'office',
-  Studio = 'studio',
-}
+import { Contact, PhoneType } from './types';
 
 // api
 // # 비동기처리 코드에서 반환값은 타입 추론이 안된다.
@@ -121,7 +98,10 @@ function test() {
   let contactsByName = addressBook.findContactByName('Tony');
   let contactsByAddress = addressBook.findContactByAddress('New York');
   // let contactsByHome = addressBook.findContactByPhone(213423452, 'home'); // 'home'등의 문자열로 작성할 때 오탈자 가능성
-  let contactsByHome = addressBook.findContactByPhone(213423452, PhoneType.Home); //이넘으로 리랙토링
+  let contactsByHome = addressBook.findContactByPhone(
+    213423452,
+    PhoneType.Home
+  ); //이넘으로 리랙토링
   console.log('contactsByName => ', contactsByName); //Tony
   console.log('contactsByAddress => ', contactsByAddress); //Banner
   console.log('contactsByHome => ', contactsByHome); //마동석
@@ -146,9 +126,9 @@ function test() {
 }
 setTimeout(() => test(), 3000); //전화번호부가 fetch(2초)된 후에 확인해야 하므로
 
-
 // -------------------------------------------------------------------------------
 // # 타입 단언
+/*
 const divElement = document.querySelector('div'); //(타입 추론) const divElement: HTMLDivElement | null
 // divElement.innerHTML; // error -> Object is possibly 'null'. (null가능성이 있음)
 
@@ -161,3 +141,4 @@ if (divElement) {
 
 const appElement = document.querySelector('#app') as Element; //const appElement: Element
 appElement.innerHTML; //if문으로 존재하는지 확인하지 않고 바로 사용할 수 있다.
+*/
