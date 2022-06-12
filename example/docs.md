@@ -74,5 +74,11 @@ class를 사용하지 않고도 생성자 함수로 충분히 만들어 나갈 �
 - 제네릭을 사용하지 않고 타입을 정의한 예제 : `dropdown-generic_add-type.ts`
 - 제네릭 적용 예제 : `dropdown-generic_apply-generic.ts`
 
+---
+# 타입 추론
 
-
+## Typescript Language Server 소개
+- [VSCode 타입스크립트 소개 문서](https://code.visualstudio.com/docs/languages/typescript#_code-suggestions)
+- [VSCode Language Server Extension 가이드](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
+- [Language Server 소개 사이트](https://langserver.org/)
+- [Language Server Protocol 개요](https://docs.microsoft.com/ko-kr/visualstudio/extensibility/language-server-protocol?view=vs-2019)
