@@ -4,11 +4,11 @@
 
 <img width="487" alt="image" src="https://user-images.githubusercontent.com/35985636/173220858-f2268877-1f27-415e-b070-bb1cfbf9e758.png">
 
-- [MDN 자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+> [MDN 자바스크립트 프로토타입과 상속](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 ## 프로토타입의 활용 사례
 
-- [MDN Object 문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
+> [MDN Object 문서](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 객체를 생성하면 기본적으로 `Object.xxxx()` Object가 제공하는 API를 사용할 수 있다.
 객체 구조를 살펴보면 기본적으로 `__proto__`에 최상위 프로토타입인 `Object`를 상속받고 있다.
@@ -50,4 +50,29 @@ class를 사용하지 않고도 생성자 함수로 충분히 만들어 나갈 �
 
 # 타입스크립트의 클래스 문법
 > 예제 코드 : 5_classes.ts
+
+---
+
+# 제네릭
+
+> [제네릭 교안](https://joshua1988.github.io/ts/guide/generics.html)
+
+## 제네릭 실전 예제 살펴보기
+
+타입을 정의했을 때 코드를 보면서, 제네릭을 적용하기 전/후를 비교
+
+> 참고 코드
+> - dropdown-generic.html
+> - dropdown-generic.ts
+
+`dropdown-generic.ts` 에는 `dropdown-generic.html` 의 화면에서 보여주는 select 박스의 option에 들어가는 데이터들을 가지고 처리한다. 
+(실제로 서버로 부터 받아오는 정보를 여기서 가공)
+
+- `createDropdownItem(item)` 동작 예
+  <img width="848" alt="image" src="https://user-images.githubusercontent.com/35985636/173222909-848b0f36-8c48-460b-be52-317c5a926ba3.png">
+
+- 제네릭을 사용하지 않고 타입을 정의한 예제 : `dropdown-generic_add-type.ts`
+- 제네릭 적용 예제 : `dropdown-generic_apply-generic.ts`
+
+
 

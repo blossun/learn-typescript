@@ -10,7 +10,9 @@ const numberOfProducts = [
   { value: 3, selected: false },
 ];
 
-function createDropdownItem(item) {
+// 배열 값들을 html 속성에 연결한다.
+// option 태그하나가 생성된다.
+function createDropdownItem(item) { //item : 배열의 하나의 요소
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
