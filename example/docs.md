@@ -182,10 +182,49 @@ if (isDeveloper(solar)) {
 ```
 # 타입 호환(Type Compatibility)
 
-> 예제 코드 : 
+> 예제 코드 : 13_type_compatibility.ts, type-comp.ts
 
 - [타입 호환이란?](https://joshua1988.github.io/ts/guide/type-compatibility.html)
 
 타입 호환이란 타입스크립트 코드에서 특정 타입이 다른 타입에 잘 맞는지를 의미합니다. 
+
+---
+# 타입 모듈화
+
+- [타입스크립트의 모듈화](https://joshua1988.github.io/ts/usage/modules.html)
+
+1. `ts-modules` 폴더 생성
+2. `ts-modules` 폴더 내에 `app.ts` 파일 생성
+3. `Todo` 인터페이스를 정의하고, `Todo` 타입의 `item` 변수를 하나 생성
+    동일한 파일내에서 사용가능했다.
+4. 실제로는 특정 타입을 여러 파일에서 나눠쓰게 되면서 한 곳에 분리해서 관리하려는 노력이 필요하다.
+    => 가독성, 유지보수성이 좋아진다.
+    타입의 정의를 별도의 하나의 파일에 모아서 정의하고 모듈로 export, import로 다루는 것이 좋다.
+    - 타입 정의 부분을 별도의 `types.ts` 파일로 분리해낸다.
+
+```ts
+// app.ts
+import {Todo} from './types'
+
+var item: Todo = {
+  title: '할일1',
+  checked: true,
+}
+```
+
+```ts
+// types.ts
+export interface Todo {
+  title: string;
+  checked: Boolean;
+}
+```
+
+## 자바스크립트의 모듈 시스템
+
+- [ES6 Modules](https://joshua1988.github.io/vue-camp/es6+/modules.html)
+- [자바스크립트 모듈화 역사](https://d2.naver.com/helloworld/12864)
+
+
 
 
