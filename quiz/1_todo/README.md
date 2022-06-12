@@ -39,6 +39,9 @@ npm install -g ts-node
 터미널에 아래 명령어 실행
 ```shell
 ts-node 타입스크립트파일명.ts
+
+# js 파일 실행
+node 자바스크립트파일명.js
 ```
 
 ```shell
