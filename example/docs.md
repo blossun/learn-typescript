@@ -180,3 +180,12 @@ if (isDeveloper(solar)) {
     solar.age
 }
 ```
+# 타입 호환(Type Compatibility)
+
+> 예제 코드 : 
+
+- [타입 호환이란?](https://joshua1988.github.io/ts/guide/type-compatibility.html)
+
+타입 호환이란 타입스크립트 코드에서 특정 타입이 다른 타입에 잘 맞는지를 의미합니다. 
+
+
