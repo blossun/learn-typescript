@@ -70,7 +70,7 @@ interface Person {
   name: string;
   age: number; // 옵셔널 선택자 ? 동일하게 적용 가능 ( age?: number; )
 }
-interface Developer extends Person {
+interface Developer extends Person { // extends 키워드 사용
   language: string;
 }
 // const zoo: Developer = { language: 'ts' }; //오류 - 상속 받은 인터페이스 속성도 값을 넣어줘야한다.
